@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://di67edvqck8hq"]
+
+[ext_resource type="Script" path="res://enemy_test.gd" id="1_d18sj"]
+[ext_resource type="Texture2D" uid="uid://djwerikpva4ku" path="res://icon.svg" id="1_nyltr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8x5qb"]
+radius = 29.0
+height = 118.0
+
+[node name="Enemy Test" type="CharacterBody2D"]
+script = ExtResource("1_d18sj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5625, 0.921875)
+texture = ExtResource("1_nyltr")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CapsuleShape2D_8x5qb")
