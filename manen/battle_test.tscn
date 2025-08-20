@@ -42,10 +42,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.533333, 0.666667, 0.7, 0.833333, 0.933333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.533333, 0.666667, 0.8, 0.933333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(154, 386), Vector2(171, 386), Vector2(130, 386), Vector2(171, 386), Vector2(171, 386), Vector2(130, 386), Vector2(130, 386), Vector2(154, 386)]
+"values": [Vector2(154, 386), Vector2(171, 386), Vector2(130, 386), Vector2(171, 386), Vector2(130, 386), Vector2(171, 386), Vector2(154, 386)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yahlc"]
@@ -67,7 +67,9 @@ libraries = {
 "": SubResource("AnimationLibrary_yahlc")
 }
 
-[node name="attack" type="Button" parent="player"]
+[node name="battle_ui" type="Node2D" parent="player"]
+
+[node name="attack" type="Button" parent="player/battle_ui"]
 offset_left = 108.0
 offset_top = -53.0
 offset_right = 209.0
@@ -75,7 +77,7 @@ offset_bottom = 12.0
 rotation = -0.509679
 text = "attack"
 
-[node name="defend" type="Button" parent="player"]
+[node name="defend" type="Button" parent="player/battle_ui"]
 offset_left = -13.0
 offset_top = -200.0
 offset_right = 115.0
@@ -89,5 +91,17 @@ modulate = Color(1, 0, 0, 1)
 position = Vector2(902, 355)
 texture = ExtResource("1_qcneu")
 
-[connection signal="pressed" from="player/attack" to="player" method="_on_button_pressed"]
-[connection signal="pressed" from="player/defend" to="player" method="_on_defend_pressed"]
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_left = 539.0
+offset_top = 68.0
+offset_right = 579.0
+offset_bottom = 91.0
+text = "player_turn"
+
+[node name="e" type="Node2D" parent="."]
+
+[connection signal="animation_finished" from="player/AnimationPlayer" to="player" method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="player/battle_ui/attack" to="player" method="_on_button_pressed"]
+[connection signal="pressed" from="player/battle_ui/defend" to="player" method="_on_defend_pressed"]
