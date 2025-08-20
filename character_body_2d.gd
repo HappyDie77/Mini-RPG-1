@@ -7,6 +7,8 @@ const SPEED = 300.0
 
 func _physics_process(delta: float) -> void:
 	
+	Global.player_pos = global_position
+	
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
