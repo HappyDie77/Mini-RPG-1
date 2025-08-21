@@ -17,10 +17,12 @@ func _on_defend_pressed() -> void:
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	pass
+	enemy_turn()
 
 func player_turn():
 	$battle_ui.visible=true
 
 func enemy_turn():
-	pass
+	for i in %enemies.get_children():
+		if i.has_method("my_turn"):
+			i. my_turn()
