@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpw66ea71ov7a"]
+[gd_scene load_steps=8 format=3 uid="uid://bpw66ea71ov7a"]
 
 [ext_resource type="Texture2D" uid="uid://djwerikpva4ku" path="res://icon.svg" id="1_qcneu"]
 [ext_resource type="Script" path="res://manen/player_battle.gd" id="2_8claq"]
+[ext_resource type="PackedScene" uid="uid://dy5m0ml7ah053" path="res://manen/enemy_battle.tscn" id="3_vcmfx"]
+
 
 [sub_resource type="Animation" id="Animation_1w16o"]
 length = 0.001
@@ -86,6 +88,7 @@ rotation = 0.65252
 text = "defend
 "
 
+
 [node name="enemy" type="Sprite2D" parent="."]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(902, 355)
@@ -100,7 +103,13 @@ offset_right = 579.0
 offset_bottom = 91.0
 text = "player_turn"
 
-[node name="e" type="Node2D" parent="."]
+
+[node name="enemies" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="enemy" parent="." instance=ExtResource("3_vcmfx")]
+position = Vector2(1010, 287)
+
 
 [connection signal="animation_finished" from="player/AnimationPlayer" to="player" method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="player/battle_ui/attack" to="player" method="_on_button_pressed"]

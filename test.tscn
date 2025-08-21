@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxy7scnk3we8w"]
+[gd_scene load_steps=4 format=3 uid="uid://bxy7scnk3we8w"]
 
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_q5am1"]
 [ext_resource type="PackedScene" uid="uid://di67edvqck8hq" path="res://enemy_test.tscn" id="2_k6kr1"]
-[ext_resource type="PackedScene" uid="uid://1o0ouu6dgot6" path="res://Denny/player.tscn" id="2_oghh8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1uau"]
 
 [node name="test" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["player"]]
+script = ExtResource("1_q5am1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_t1uau")
 
 [node name="Enemy Test" parent="." instance=ExtResource("2_k6kr1")]
 position = Vector2(721, 164)
 
-[node name="Player" parent="." instance=ExtResource("2_oghh8")]
-position = Vector2(101.042, 18.5406)
