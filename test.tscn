@@ -15,3 +15,4 @@ shape = SubResource("RectangleShape2D_t1uau")
 
 [node name="Enemy Test" parent="." instance=ExtResource("2_k6kr1")]
 position = Vector2(721, 164)
+
