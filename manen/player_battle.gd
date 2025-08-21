@@ -1,9 +1,11 @@
 extends Sprite2D
 
 
+func _ready() -> void:
+	GlobalBattle.connect("player_turn", Callable(self, "player_tur"))
 
-
-
+func player_tur():
+	$battle_ui.visible=true
 
 func _on_button_pressed() -> void:
 	$AnimationPlayer.play("default attack")
@@ -24,5 +26,7 @@ func player_turn():
 
 func enemy_turn():
 	for i in %enemies.get_children():
+		print(i)
 		if i.has_method("my_turn"):
+			print(i)
 			i. my_turn()

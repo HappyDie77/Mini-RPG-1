@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy5m0ml7ah053"]
+
+[ext_resource type="Texture2D" uid="uid://djwerikpva4ku" path="res://icon.svg" id="1_m3jbe"]
+[ext_resource type="Script" path="res://manen/enemy_battle.gd" id="2_0oqbe"]
+
+[node name="enemy" type="Sprite2D"]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(902, 355)
+texture = ExtResource("1_m3jbe")
+script = ExtResource("2_0oqbe")
