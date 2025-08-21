@@ -5,8 +5,8 @@ func my_turn():
 	attack()
 
 func attack():
-	$AnimationPlayer.play("enemy_attack")
+	$AnimationPlayer.play("attack")
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	pass # Replace with function body.
+	GlobalBattle.emit_signal("player_turn")
